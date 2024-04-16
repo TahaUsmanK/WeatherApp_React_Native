@@ -1,8 +1,7 @@
 import Geolocation from '@react-native-community/geolocation';
 import {PermissionsAndroid} from 'react-native';
-import GetAPIData from '../API_service/API_service';
 
-const GetLocationPermission = async (setLat: any, setLan: any) => {
+const GetLocationPermission = async (setLat: any, setLon: any) => {
   try {
     const granted = await PermissionsAndroid.request(
       PermissionsAndroid.PERMISSIONS.ACCESS_FINE_LOCATION,
@@ -12,9 +11,11 @@ const GetLocationPermission = async (setLat: any, setLan: any) => {
       Geolocation.getCurrentPosition(
         position => {
           setLat(position.coords.latitude);
-          setLan(position.coords.longitude);
+          setLon(position.coords.longitude);
         },
-        error => console.log(error.message),
+        error => {
+          console.error('Error getting location:', error);
+        },
         {
           enableHighAccuracy: true,
           timeout: 20000,
@@ -22,10 +23,10 @@ const GetLocationPermission = async (setLat: any, setLan: any) => {
         },
       );
     } else {
-      console.error('Location permission denied');
+      console.warn('Location permission denied');
     }
-  } catch (err) {
-    console.warn(err);
+  } catch (error) {
+    console.error('Error requesting location permission:', error);
   }
 };
 
