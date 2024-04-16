@@ -52,7 +52,7 @@ const WeeklyAndHourlyForcast = () => {
                   uri: `https://openweathermap.org/img/wn/${item.weather[0].icon}@2x.png`,
                 }}
               />
-              <Text style={HomeStyle.flatListText}>{item.main.temp}°</Text>
+              <Text style={HomeStyle.flatListText}>{item.main['temp']}°</Text>
             </View>
           )}
           keyExtractor={(item, index) => index.toString()}

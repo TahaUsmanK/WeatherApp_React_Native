@@ -17,7 +17,11 @@ const App = () => {
             headerShown: false,
           }}
         />
-        <Stack.Screen name="WeatherList" component={WeatherListScreen} />
+        <Stack.Screen
+          name="WeatherList"
+          component={WeatherListScreen}
+          options={{headerShown: false}}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );

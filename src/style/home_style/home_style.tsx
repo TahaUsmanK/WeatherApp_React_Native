@@ -35,6 +35,12 @@ const HomeStyle = StyleSheet.create({
   temperatureText: {
     fontSize: 80,
     color: 'black',
+    fontWeight: '200',
+    alignSelf: 'center',
+  },
+  temperatureMinMaxText: {
+    fontSize: 16,
+    color: 'black',
     fontWeight: '300',
     alignSelf: 'center',
   },
@@ -43,8 +49,8 @@ const HomeStyle = StyleSheet.create({
     flexWrap: 'wrap',
     justifyContent: 'space-between',
     marginTop: '5%',
-    paddingLeft: '33%',
-    paddingRight: '36%',
+    paddingLeft: '30%',
+    paddingRight: '30%',
   },
   tabView: {
     flex: 1,
@@ -72,7 +78,7 @@ const HomeStyle = StyleSheet.create({
     borderWidth: 1,
     borderColor: 'grey',
     borderRadius: 18,
-    margin: 5,
+    margin: 10,
     paddingBottom: 50,
     paddingTop: 50,
     padding: 10,

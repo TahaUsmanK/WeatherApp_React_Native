@@ -5,7 +5,6 @@ import GetLocationPermission from '../../service/location_service/location_servi
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import HomeStyle from '../../style/home_style/home_style';
 import {createMaterialTopTabNavigator} from '@react-navigation/material-top-tabs';
-import HourlyForcast from '../../component/weekly_and_hourly_forcast/weekly_and_hourly_forcast';
 import WeeklyAndHourlyForcast from '../../component/weekly_and_hourly_forcast/weekly_and_hourly_forcast';
 
 const HomeScreen = (props: any) => {
@@ -72,10 +71,13 @@ const HomeScreen = (props: any) => {
         </Text>
 
         <View style={HomeStyle.temperatureMinMaxView}>
-          <Text>
-            {data ? 'H: ' + data.main.temp_max + '°' + '      |' : '0°'}
+          <Text style={HomeStyle.temperatureMinMaxText}>
+            {data ? 'H: ' + data.main.temp_max + '°' : '0°'}
           </Text>
-          <Text>{data ? 'L: ' + data.main.temp_min + '°' : '0°'}</Text>
+          <Text style={HomeStyle.temperatureMinMaxText}>|</Text>
+          <Text style={HomeStyle.temperatureMinMaxText}>
+            {data ? 'L: ' + data.main.temp_min + '°' : '0°'}
+          </Text>
         </View>
 
         <View style={HomeStyle.tabView}>
